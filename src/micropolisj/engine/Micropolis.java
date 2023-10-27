@@ -2383,7 +2383,7 @@ public class Micropolis
 					int xx = x + DX[t];
 					int yy = y + DY[t];
 					if (testBounds(xx,yy)) {
-						int c = map[yy][xx];
+						int c = map[xx][yy];
 						if (isFloodable(c)) {
 							setTile(xx, yy, FLOOD);
 							floodCnt = 30;

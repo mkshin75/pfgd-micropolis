@@ -360,11 +360,10 @@ class RoadLikeTool extends ToolStroke
 		switch (tile)
 		{
 		case RIVER:		// wire on water
+			cost = UNDERWATER_WIRE_COST;
+			
 		case REDGE:
 		case CHANNEL:
-
-			cost = WIRE_COST;
-
 			// check east
 			{
 				int tmp = eff.getTile(1, 0);
