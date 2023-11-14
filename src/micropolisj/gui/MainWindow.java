@@ -1046,6 +1046,15 @@ public class MainWindow extends JFrame
 		gridBox.add(b6,c);
 
 		b6.add(makeToolBtn(MicropolisTool.AIRPORT));
+		
+		// copied Query  -> to be modified into Pollution view, Crime view, Power view
+		c.gridy++;
+		Box b7 = new Box(BoxLayout.X_AXIS);
+		gridBox.add(b7,c);
+
+		b7.add(makeToolBtn(MicropolisTool.PLTVIEW));
+		b7.add(makeToolBtn(MicropolisTool.CRMVIEW));
+		b7.add(makeToolBtn(MicropolisTool.PWVIEW));
 
 		// add glue to make all elements align toward top
 		c.gridy++;
@@ -1106,6 +1115,19 @@ public class MainWindow extends JFrame
 
 		ZoneStatus z = engine.queryZoneStatus(xpos, ypos);
 		notificationPane.showZoneStatus(engine, xpos, ypos, z);
+	}
+	
+	// add view tools
+	
+	void doPltViewTool ()
+	{
+	
+		//for map[][] ???
+		//public int [][] pollutionMem; ???
+		//PWRBIT ???
+
+		//mapView = new OverlayMapView(engine);
+		//Couldn't figure out how to render the overlayMapView
 	}
 
 	private void doZoom(int dir, Point mousePt)
@@ -1250,6 +1272,15 @@ public class MainWindow extends JFrame
 		if (toolStroke != null) {
 			toolStroke.dragTo(x, y);
 			previewTool();
+		}
+		else if (currentTool == MicropolisTool.PLTVIEW) {
+			doPltViewTool(x, y);
+		}
+		else if (currentTool == MicropolisTool.CRMVIEW) {
+			doQueryTool(x, y);
+		}
+		else if (currentTool == MicropolisTool.PWVIEW) {
+			doQueryTool(x, y);
 		}
 		else if (currentTool == MicropolisTool.QUERY) {
 			doQueryTool(x, y);
