@@ -1074,7 +1074,12 @@ public class MainWindow extends JFrame
 		if (currentTool != null) {
 			toolBtns.get(currentTool).setSelected(false);
 		}
-
+		
+		if (newTool == MicropolisTool.PLTVIEW)
+		{
+			engine.showPollution();
+		}
+		
 		currentTool = newTool;
 
 		currentToolLbl.setText(
@@ -1121,13 +1126,16 @@ public class MainWindow extends JFrame
 	
 	void doPltViewTool ()
 	{
-	
+
+		engine.makeTornado();
+		
 		//for map[][] ???
 		//public int [][] pollutionMem; ???
 		//PWRBIT ???
 
 		//mapView = new OverlayMapView(engine);
 		//Couldn't figure out how to render the overlayMapView
+		
 	}
 
 	private void doZoom(int dir, Point mousePt)
@@ -1273,15 +1281,7 @@ public class MainWindow extends JFrame
 			toolStroke.dragTo(x, y);
 			previewTool();
 		}
-		else if (currentTool == MicropolisTool.PLTVIEW) {
-			doPltViewTool(x, y);
-		}
-		else if (currentTool == MicropolisTool.CRMVIEW) {
-			doQueryTool(x, y);
-		}
-		else if (currentTool == MicropolisTool.PWVIEW) {
-			doQueryTool(x, y);
-		}
+
 		else if (currentTool == MicropolisTool.QUERY) {
 			doQueryTool(x, y);
 		}

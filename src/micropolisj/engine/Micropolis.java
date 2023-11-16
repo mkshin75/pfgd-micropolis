@@ -2351,6 +2351,18 @@ public class Micropolis
 		sprites.add(new MonsterSprite(this, xpos, ypos));
 	}
 
+	public void showPollution()
+	{
+
+
+		//FIXME- this is not exactly like the original code
+		int xpos = getWidth()/2;
+		int ypos = getHeight()/2;
+		sprites.add(new PollutionSprite(this, xpos, ypos));
+		sendMessageAt(MicropolisMessage.TORNADO_REPORT, xpos, ypos);
+	}
+
+	
 	public void makeTornado()
 	{
 		TornadoSprite tornado = (TornadoSprite) getSprite(SpriteKind.TOR);
