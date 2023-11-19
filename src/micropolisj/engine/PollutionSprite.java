@@ -30,7 +30,7 @@ public class PollutionSprite extends Sprite
 		this.offy = -40;
 
 		this.frame = 1;
-		this.count = 200;
+		this.count = 80;
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class PollutionSprite extends Sprite
 			return;
 		}
 
-		if (this.count == 0 && city.PRNG.nextInt(501) == 0) {
+		if (this.count == 0) {
 			// early termination
 			this.frame = 0;
 			return;

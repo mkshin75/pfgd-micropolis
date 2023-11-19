@@ -2351,15 +2351,33 @@ public class Micropolis
 		sprites.add(new MonsterSprite(this, xpos, ypos));
 	}
 
+	//high pollution threshold as 60, just like the high pollution warning
 	public void showPollution()
 	{
 
+		for (int yp = 0; yp < getHeight(); yp++) {
+			for (int xp = 0; xp < getWidth(); xp++) {
+				int pollutionval = pollutionMem[yp/2][xp/2];
+				
+					if (pollutionval > 60) {
+						sprites.add(new PollutionSprite(this, xp, yp));
+						System.out.print("Pollution");
+						System.out.print(" ");
+						System.out.print(pollutionval);
+						System.out.print(" at (");
+						System.out.print(xp);
+						System.out.print(", ");
+						System.out.print(yp);
+						System.out.print(") ");
+					}				
+			}	
+		}			
 
 		//FIXME- this is not exactly like the original code
-		int xpos = getWidth()/2;
-		int ypos = getHeight()/2;
-		sprites.add(new PollutionSprite(this, xpos, ypos));
-		sendMessageAt(MicropolisMessage.TORNADO_REPORT, xpos, ypos);
+		//int xpos = getWidth()/2;
+		//int ypos = getHeight()/2;
+		//sprites.add(new PollutionSprite(this, xpos, ypos));
+		sendMessageAt(MicropolisMessage.POLLUTION_VIEW, 10, 10);
 	}
 
 	
