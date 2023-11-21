@@ -59,6 +59,8 @@ public enum MicropolisMessage
 	MELTDOWN_REPORT,        // 43            doMeltdown
 	RIOTING_REPORT,
 	POLLUTION_VIEW,
+	CRIME_VIEW,
+	POWER_VIEW,
 	
 
 	// added by Jason

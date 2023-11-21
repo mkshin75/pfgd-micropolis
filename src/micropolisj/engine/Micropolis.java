@@ -2361,25 +2361,63 @@ public class Micropolis
 				
 					if (pollutionval > 60) {
 						sprites.add(new PollutionSprite(this, xp, yp));
-						System.out.print("Pollution");
+//						System.out.print("Pollution");
+//						System.out.print(" ");
+//						System.out.print(pollutionval);
+//						System.out.print(" at (");
+//						System.out.print(xp);
+//						System.out.print(", ");
+//						System.out.print(yp);
+//						System.out.print(") ");
+					}				
+			}	
+		}			
+
+		sendMessageAt(MicropolisMessage.POLLUTION_VIEW, 10, 10);
+	}
+
+	//high crime threshold as 100, just like the high crime warning
+	public void showCrime()
+	{
+
+		for (int yp = 0; yp < getHeight(); yp++) {
+			for (int xp = 0; xp < getWidth(); xp++) {
+				int crimeval = crimeMem[yp/2][xp/2];
+					if (crimeval > 100) {
+						sprites.add(new CrimeSprite(this, xp, yp));
+						System.out.print("Crime");
 						System.out.print(" ");
-						System.out.print(pollutionval);
+						System.out.print(crimeval);
 						System.out.print(" at (");
 						System.out.print(xp);
 						System.out.print(", ");
 						System.out.print(yp);
 						System.out.print(") ");
 					}				
-			}	
-		}			
+				}	
+			}				
 
-		//FIXME- this is not exactly like the original code
-		//int xpos = getWidth()/2;
-		//int ypos = getHeight()/2;
-		//sprites.add(new PollutionSprite(this, xpos, ypos));
-		sendMessageAt(MicropolisMessage.POLLUTION_VIEW, 10, 10);
+		sendMessageAt(MicropolisMessage.CRIME_VIEW, 10, 10);
 	}
+	
+	public void showPower()
+	{
 
+		for (int yp = 0; yp < getHeight(); yp++) {
+			for (int xp = 0; xp < getWidth(); xp++) {
+				if (powerMap[yp][xp]) {
+						sprites.add(new PowerSprite(this, xp, yp));
+						System.out.print("Power at (");
+						System.out.print(xp);
+						System.out.print(", ");
+						System.out.print(yp);
+						System.out.print(") ");
+					}				
+				}	
+			}				
+
+		sendMessageAt(MicropolisMessage.POWER_VIEW, 10, 10);
+	}
 	
 	public void makeTornado()
 	{

@@ -1080,6 +1080,16 @@ public class MainWindow extends JFrame
 			engine.showPollution();
 		}
 		
+		if (newTool == MicropolisTool.CRMVIEW)
+		{
+			engine.showCrime();
+		}
+		
+		if (newTool == MicropolisTool.PWVIEW)
+		{
+			engine.showPower();
+		}
+		
 		currentTool = newTool;
 
 		currentToolLbl.setText(

@@ -11,7 +11,7 @@ package micropolisj.engine;
 /**
  * Implements a tornado (one of the Micropolis disasters).
  */
-public class PollutionSprite extends Sprite
+public class PowerSprite extends Sprite
 {
 	static int [] CDx = {  2,  3,  2,  0, -2, -3 };
 	static int [] CDy = { -2,  0,  2,  3,  2,  0 };
@@ -19,9 +19,9 @@ public class PollutionSprite extends Sprite
 	boolean flag;
 	int count;
 
-	public PollutionSprite(Micropolis engine, int xpos, int ypos)
+	public PowerSprite(Micropolis engine, int xpos, int ypos)
 	{
-		super(engine, SpriteKind.TOR);
+		super(engine, SpriteKind.SHI);
 		this.x = xpos * 16 + 8;
 		this.y = ypos * 16 + 8;
 		this.width = 48;
@@ -56,6 +56,7 @@ public class PollutionSprite extends Sprite
 		}
 
 		this.frame = z;
+
 
 		if (!city.testBounds(x/16, y/16)) {
 			// out of bounds
